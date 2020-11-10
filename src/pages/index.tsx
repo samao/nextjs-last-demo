@@ -1,7 +1,19 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+/*
+ * Copyright (c) QieTv, Inc. 2018
+ * @Author: idzeir
+ * @Date: 2020-11-10 13:41:33
+ * @Last Modified by: idzeir
+ * @Last Modified time: 2020-11-10 16:45:02
+ */
+import { useSelector, useDispatch } from "react-redux";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Actions from "../actions";
 
 export default function Home() {
+  const uname = useSelector((state: any) => state.get("home").get("name"));
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -10,12 +22,17 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <h1
+          className={styles.title}
+          onClick={() => {
+            dispatch({ type: Actions.CHANGE_NAME });
+          }}
+        >
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing {uname}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -56,10 +73,10 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }

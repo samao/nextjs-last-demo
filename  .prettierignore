@@ -1,0 +1,14 @@
+# 目录
+dist/
+node_modules/
+.next/
+out/
+nextStatic/
+public/
+
+# 文件
+*.MD
+*.log
+*.html
+package-lock.json
+.gitlab-ci.yml

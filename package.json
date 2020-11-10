@@ -3,13 +3,52 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node ./www/server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "cross-env NODE_ENV=production node ./www/server.js",
+    "prettier": "pretty-quick",
+    "prettier-staged": "pretty-quick --staged",
+    "prettier-check": "pretty-quick --check",
+    "prettier-all": "pretty-quick --since=3d49748c474eb5f653f59d53637401c75bf04d67",
+    "lint-css": "stylelint \"src/{styles,components,common,pages}/{,**/}*.{css,less}\"",
+    "lint-css-fix": "stylelint \"src/{styles,components,common,pages}/{,**/}*.{css,less}\" --fix",
+    "lint-ts": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint-ts-fix": "eslint --ext .js,.jsx,.ts,.tsx . --fix",
+    "lint": "npm run lint-css && npm run lint-ts",
+    "lint-fix": "npm run lint-css-fix && npm run lint-ts-fix"
   },
   "dependencies": {
+    "@koa/router": "^10.0.0",
+    "@types/react-redux": "^7.1.11",
+    "@types/redux-actions": "^2.6.1",
+    "cross-env": "^7.0.2",
+    "immutable": "^4.0.0-rc.12",
+    "koa": "^2.13.0",
     "next": "10.0.1",
+    "next-redux-wrapper": "^6.0.2",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-immutable": "^4.0.0",
+    "redux-saga": "^1.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.7",
+    "@types/react": "^16.9.56",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.1.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-standard": "^20.0.0",
+    "typescript": "^4.0.5"
   }
 }

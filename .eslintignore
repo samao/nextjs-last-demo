@@ -1,0 +1,10 @@
+node_modules
+dist
+__test__
+.next
+out
+nextStatic
+public
+
+*.log
+.gitlab-ci.yml

@@ -1,0 +1,15 @@
+{
+    "extends": ["stylelint-config-recommended", "stylelint-config-standard"],
+    "plugins": [],
+    "rules": {
+        "indentation": 4,
+        "no-eol-whitespace": null,
+        "no-descending-specificity": null,
+        "selector-pseudo-class-no-unknown": [true, {
+            "ignorePseudoClasses": ["global", "local"]
+        }],
+        "selector-class-pattern": ["^[a-z][a-zA-Z0-9]+$", { "resolveNestedSelectors": true }],
+        "no-extra-semicolons": null
+    },
+    "defaultSeverity": "error"
+}
